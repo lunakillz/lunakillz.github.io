@@ -73,6 +73,7 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .career { display: grid; gap: clamp(3rem, 9vw, 9rem); grid-template-columns: minmax(220px, .7fr) 1.3fr; }
 .career-intro { align-self: start; position: sticky; top: 7rem; }
 .career-intro h2, .games h2, .contact h2 { font-size: clamp(2.8rem, 6vw, 6rem); letter-spacing: -.06em; }
+.career-intro h2 em { white-space: nowrap; }
 .career-intro > p:last-child, .games > p:last-child { color: var(--muted); max-width: 300px; }
 .timeline { border-left: 1px solid var(--line); padding-left: clamp(1.5rem, 4vw, 3rem); }
 .timeline-item { opacity: .38; padding: 0 0 5rem; position: relative; transform: translateX(1rem); transition: opacity .55s ease, transform .55s ease; }
