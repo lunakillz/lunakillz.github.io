@@ -27,15 +27,15 @@
           <h1 id="home-title">Software Engineer<br><em>/ Backend Developer</em></h1>
           <p class="lede">제품과 인프라를 함께 이해하며, 복잡한 시스템을 오래 운영 가능한 구조로 만듭니다.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://www.linkedin.com/in/songchangho/" target="_blank" rel="noreferrer" aria-label="LinkedIn 프로필 열기">
+            <a class="button button-primary button-linkedin" href="https://www.linkedin.com/in/songchangho/" target="_blank" rel="noreferrer" aria-label="LinkedIn 프로필 열기">
               <img class="button-icon button-icon-image" src="assets/linkedin-white.png" alt="">
               <span>LinkedIn</span>
             </a>
-            <a class="button button-outline" href="https://instagram.com/lunakillz" target="_blank" rel="noreferrer" aria-label="Instagram 프로필 열기">
-              <img class="button-icon button-icon-image" src="assets/instagram.svg" alt="">
+            <a class="button button-outline button-instagram" href="https://instagram.com/lunakillz" target="_blank" rel="noreferrer" aria-label="Instagram 프로필 열기">
+              <img class="button-icon button-icon-image button-icon-instagram" src="assets/instagram.svg" alt="">
               <span>Instagram</span>
             </a>
-            <a class="button button-outline" href="mailto:lunakillz@gmail.com" aria-label="이메일 보내기">
+            <a class="button button-outline button-email" href="mailto:lunakillz@gmail.com" aria-label="이메일 보내기">
               <svg class="button-icon" aria-hidden="true" viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
               <span>Email</span>
             </a>
@@ -110,29 +110,31 @@
         <p class="eyebrow">PLAYGROUND</p>
         <h2 id="games-title">Games<span>.</span></h2>
         <div class="game-shell" id="snake-game">
-          <div class="game-heading">
-            <p>Snake / keyboard + touch</p>
+          <div class="game-copy">
+            <p class="game-kicker">SYSTEMS PLAYGROUND · 01</p>
+            <h3 class="game-title"><span>Loop</span><strong>Snake</strong></h3>
+            <p class="game-description">Act. Observe. Correct. Repeat. Keep the loop alive for as long as you can.</p>
             <div class="game-stats" aria-live="polite">
               <span>Score <strong id="score">0</strong></span>
               <span>High score <strong id="high-score">0</strong></span>
             </div>
+            <div class="game-actions">
+              <button class="button button-primary" type="button" id="start-game">Play again</button>
+              <button class="button button-outline" type="button" id="pause-game">Pause</button>
+              <button class="button button-outline" type="button" id="restart-game">Restart</button>
+            </div>
+            <p class="game-help" id="game-help"><strong>Keyboard:</strong> Arrow keys or WASD<br><strong>Touch:</strong> Swipe the board or use the controls</p>
+            <p class="game-status" id="game-status" role="status">Game ready. Press Play again to start.</p>
           </div>
-          <canvas id="snake-board" width="360" height="360" aria-label="지렁이 게임 보드"></canvas>
-          <p class="game-status" id="game-status" role="status">Start를 눌러 게임을 시작하세요.</p>
-          <div class="game-console-controls">
+          <div class="game-stage">
+            <canvas id="snake-board" width="360" height="360" aria-label="지렁이 게임 보드"></canvas>
             <div class="game-controls" aria-label="지렁이 게임 조작">
               <button type="button" data-action="up" aria-label="위로 이동">↑</button>
               <button type="button" data-action="left" aria-label="왼쪽으로 이동">←</button>
               <button type="button" data-action="down" aria-label="아래로 이동">↓</button>
               <button type="button" data-action="right" aria-label="오른쪽으로 이동">→</button>
             </div>
-            <div class="game-actions">
-              <button class="button button-primary" type="button" id="start-game">Start</button>
-              <button class="button button-outline" type="button" id="pause-game">Pause</button>
-              <button class="button button-outline" type="button" id="restart-game">Restart</button>
-            </div>
           </div>
-          <p class="game-help" id="game-help">방향키 / WASD로 이동 · 모바일에서는 D-pad를 터치하세요.</p>
         </div>
       </section>
 
