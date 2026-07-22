@@ -10,10 +10,10 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#home">송창호 <span>Chang-ho Song</span></a>
+      <a class="brand" href="#home"><span>CH</span> 송창호</a>
       <nav aria-label="주요 메뉴">
         <a href="#home">Home</a>
-        <a href="#cv">CV</a>
+        <a href="#career">Career</a>
         <a href="#games">Games</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -21,56 +21,96 @@
 
     <main>
       <section id="home" class="hero" aria-labelledby="home-title">
-        <p class="eyebrow">STAFF ENGINEER / BACKEND DEVELOPER</p>
-        <h1 id="home-title">Software that stays useful.</h1>
-        <p class="lede">제품과 인프라를 함께 이해하며, 복잡한 시스템을 오래 운영 가능한 구조로 만듭니다.</p>
-        <a class="button" href="#cv">View CV</a>
+        <div class="hero-copy">
+          <p class="eyebrow">HELLO<span>.</span></p>
+          <p class="hero-name">I’m 송창호</p>
+          <h1 id="home-title">Staff Engineer<br><em>/ Backend Developer</em></h1>
+          <p class="lede">제품과 인프라를 함께 이해하며, 복잡한 시스템을 오래 운영 가능한 구조로 만듭니다.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:lunakillz@gmail.com">Get in touch</a>
+            <a class="button button-outline" href="#career">View my CV</a>
+          </div>
+        </div>
+        <div class="portrait-wrap" aria-label="프로필 사진 영역">
+          <span class="orbit orbit-one" aria-hidden="true"></span>
+          <span class="orbit orbit-two" aria-hidden="true"></span>
+          <img class="portrait" src="assets/profile.jpg" alt="송창호의 흑백 프로필 사진">
+        </div>
       </section>
 
-      <section id="cv" class="section" aria-labelledby="cv-title">
-        <div class="section-heading">
+      <div class="skill-strip" aria-label="주요 기술">
+        <span>Spring Boot</span><span>Kafka</span><span>FCM</span><span>Flutter</span>
+        <span>AWS</span><span>Terraform</span><span>BLE</span>
+      </div>
+
+      <section id="career" class="career section" aria-labelledby="career-title">
+        <div class="career-intro" data-reveal>
           <p class="eyebrow">PROFILE / EXPERIENCE</p>
-          <h2 id="cv-title">CV</h2>
+          <h2 id="career-title">Career<br><em>&amp; Education</em></h2>
+          <p>스크롤할 때마다 제가 지나온 역할과 배운 것들이 하나씩 강조됩니다.</p>
         </div>
-        <div class="cv-grid">
-          <article class="cv-card">
+        <div class="timeline" aria-label="경력 및 학력 타임라인">
+          <article class="timeline-item is-active" data-career data-reveal>
+            <span class="timeline-dot" aria-hidden="true"></span>
             <p class="date">2023.02 — Present</p>
             <h3>Software Engineer</h3>
-            <p class="company">Samsung Electronics · Full-time</p>
-            <p>파트너 Notification 시스템을 설계·구현하고, Spring Boot·Kafka·FCM 기반의 대규모 타겟 푸시와 프라이버시 보호 위치기반 알림 아키텍처를 개발했습니다.</p>
+            <p class="company">Samsung Electronics · Full-time · Suwon</p>
+            <p>파트너 Notification 시스템을 처음부터 설계·구현했습니다. Spring Boot·Kafka·FCM 기반의 카드·밸류·벌크 타겟 푸시와 프라이버시 보호 위치기반 알림 아키텍처를 개발했습니다.</p>
           </article>
-          <article class="cv-card">
+          <article class="timeline-item" data-career data-reveal>
+            <span class="timeline-dot" aria-hidden="true"></span>
             <p class="date">2018.11 — 2022.09</p>
             <h3>CTO</h3>
-            <p class="company">브레싱스 · Full-time</p>
-            <p>헬스케어 IoT 스타트업의 소프트웨어 스택을 총괄하고 Flutter, BLE, AWS, Terraform 기반 제품과 인프라를 구축했습니다.</p>
+            <p class="company">브레싱스 · Full-time · Seoul</p>
+            <p>헬스케어 IoT 스타트업의 소프트웨어 스택을 총괄했습니다. Flutter·BLE·AWS·Terraform 기반 제품과 인프라, 증분 데이터 싱크를 설계했습니다.</p>
           </article>
-          <article class="cv-card">
+          <article class="timeline-item" data-career data-reveal>
+            <span class="timeline-dot" aria-hidden="true"></span>
             <p class="date">2013.03 — 2018.10</p>
             <h3>Software Engineer</h3>
             <p class="company">Samsung Electronics</p>
-            <p>클라우드 DB 인프라와 DR/HA를 운영하고, Samsung Pay 어드민 포털과 글로벌 이벤트 시스템을 개발했습니다.</p>
+            <p>클라우드 DB 인프라의 DR·HA·백업·이중화를 운영하고, Samsung Pay 어드민 포털과 글로벌 이벤트 시스템을 개발했습니다.</p>
           </article>
-          <article class="cv-card">
-            <p class="date">Education</p>
-            <h3>세종대학교</h3>
-            <p class="company">학사 · 디지털컨텐츠 · 2006 — 2013</p>
+          <article class="timeline-item" data-career data-reveal>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <p class="date">2011.06 — 2012.12</p>
+            <h3>Member</h3>
+            <p class="company">Samsung Software Membership</p>
+            <p>삼성 내부 소프트웨어 인큐베이션 프로그램에 참여해 프로젝트와 기술 스터디를 수행했습니다.</p>
+          </article>
+          <article class="timeline-item" data-career data-reveal>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <p class="date">2008.09 — 2010.10</p>
+            <h3>Software Programmer</h3>
+            <p class="company">Republic of Korea Air Force · Gyeryong</p>
+            <p>공군중앙전산소에서 내부 소프트웨어 시스템을 개발·유지보수했습니다.</p>
+          </article>
+          <article class="timeline-item education" data-career data-reveal>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <p class="date">2006 — 2013</p>
+            <h3>학사 · 디지털컨텐츠</h3>
+            <p class="company">세종대학교</p>
+            <p>디지털컨텐츠를 전공하며 기술과 콘텐츠를 연결하는 기반을 쌓았습니다.</p>
+          </article>
+          <article class="timeline-item education" data-career data-reveal>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <p class="date">2003.03 — 2006.02</p>
+            <h3>고등학교</h3>
+            <p class="company">휘문고등학교</p>
           </article>
         </div>
       </section>
 
-      <section id="games" class="section games-placeholder" aria-labelledby="games-title">
-        <div class="section-heading">
-          <p class="eyebrow">PLAYGROUND</p>
-          <h2 id="games-title">Games</h2>
-        </div>
-        <p>지렁이 게임이 다음 루프에서 이곳에 추가됩니다.</p>
+      <section id="games" class="section games-placeholder" aria-labelledby="games-title" data-reveal>
+        <p class="eyebrow">PLAYGROUND</p>
+        <h2 id="games-title">Games<span>.</span></h2>
+        <p>지렁이 게임은 다음 개발 루프에서 추가됩니다.</p>
       </section>
 
-      <section id="contact" class="section contact" aria-labelledby="contact-title">
-        <p class="eyebrow">GET IN TOUCH</p>
-        <h2 id="contact-title">Let’s build something durable.</h2>
-        <a href="mailto:lunakillz@gmail.com">lunakillz@gmail.com</a>
+      <section id="contact" class="section contact" aria-labelledby="contact-title" data-reveal>
+        <p class="eyebrow">LET’S CONNECT</p>
+        <h2 id="contact-title">Let’s build<br><em>something durable.</em></h2>
+        <a class="contact-email" href="mailto:lunakillz@gmail.com">lunakillz@gmail.com</a>
       </section>
     </main>
 
