@@ -7,6 +7,7 @@
     <title>송창호 — Staff Engineer / Backend Developer</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script src="game.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -101,10 +102,32 @@
         </div>
       </section>
 
-      <section id="games" class="section games-placeholder" aria-labelledby="games-title" data-reveal>
+      <section id="games" class="section games" aria-labelledby="games-title" data-reveal>
         <p class="eyebrow">PLAYGROUND</p>
         <h2 id="games-title">Games<span>.</span></h2>
-        <p>지렁이 게임은 다음 개발 루프에서 추가됩니다.</p>
+        <div class="game-shell" id="snake-game">
+          <div class="game-heading">
+            <p>Snake / keyboard + touch</p>
+            <div class="game-stats" aria-live="polite">
+              <span>Score <strong id="score">0</strong></span>
+              <span>High score <strong id="high-score">0</strong></span>
+            </div>
+          </div>
+          <canvas id="snake-board" width="360" height="360" aria-label="지렁이 게임 보드"></canvas>
+          <p class="game-status" id="game-status" role="status">Start를 눌러 게임을 시작하세요.</p>
+          <div class="game-controls" aria-label="지렁이 게임 조작">
+            <button type="button" data-action="up">↑</button>
+            <button type="button" data-action="left">←</button>
+            <button type="button" data-action="down">↓</button>
+            <button type="button" data-action="right">→</button>
+          </div>
+          <div class="game-actions">
+            <button class="button button-primary" type="button" id="start-game">Start</button>
+            <button class="button button-outline" type="button" id="pause-game">Pause</button>
+            <button class="button button-outline" type="button" id="restart-game">Restart</button>
+          </div>
+          <p class="game-help">방향키 / WASD로 이동 · 모바일에서는 버튼을 터치하세요.</p>
+        </div>
       </section>
 
       <section id="contact" class="section contact" aria-labelledby="contact-title" data-reveal>

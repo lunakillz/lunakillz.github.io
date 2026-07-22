@@ -58,8 +58,8 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .section { border-top: 1px solid var(--line); padding: clamp(5rem, 12vw, 10rem) 0; }
 .career { display: grid; gap: clamp(3rem, 9vw, 9rem); grid-template-columns: minmax(220px, .7fr) 1.3fr; }
 .career-intro { align-self: start; position: sticky; top: 7rem; }
-.career-intro h2, .games-placeholder h2, .contact h2 { font-size: clamp(2.8rem, 6vw, 6rem); letter-spacing: -.06em; }
-.career-intro > p:last-child, .games-placeholder > p:last-child { color: var(--muted); max-width: 300px; }
+.career-intro h2, .games h2, .contact h2 { font-size: clamp(2.8rem, 6vw, 6rem); letter-spacing: -.06em; }
+.career-intro > p:last-child, .games > p:last-child { color: var(--muted); max-width: 300px; }
 .timeline { border-left: 1px solid var(--line); padding-left: clamp(1.5rem, 4vw, 3rem); }
 .timeline-item { opacity: .38; padding: 0 0 5rem; position: relative; transform: translateX(1rem); transition: opacity .55s ease, transform .55s ease; }
 .timeline-item:last-child { padding-bottom: 0; }
@@ -71,7 +71,20 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .timeline-item h3 { font-size: clamp(1.4rem, 3vw, 2.3rem); }
 .timeline-item p:last-child { color: var(--muted); max-width: 680px; }
 .education h3 { color: var(--ink); }
-.games-placeholder { min-height: 45vh; }
+.games { min-height: 70vh; }
+.game-shell { background: var(--navy-light); margin-top: 2.5rem; max-width: 680px; padding: clamp(1rem, 4vw, 2rem); }
+.game-heading, .game-stats, .game-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; }
+.game-heading p, .game-help, .game-status { color: var(--muted); margin: 0; }
+.game-stats { gap: 1.25rem; }
+.game-stats strong { color: var(--coral); font-size: 1.2rem; margin-left: .25rem; }
+#snake-board { background: #0a141d; border: 1px solid var(--line); display: block; height: min(100%, 520px); margin: 1.5rem auto; max-width: 100%; width: 100%; }
+.game-controls { display: grid; gap: .45rem; grid-template-columns: repeat(3, 3rem); justify-content: center; margin: 1.25rem auto; }
+.game-controls button { background: transparent; border: 1px solid var(--coral); color: var(--ink); cursor: pointer; font-size: 1.3rem; min-height: 3rem; touch-action: manipulation; }
+.game-controls button:first-child { grid-column: 2; }
+.game-controls button:hover, .game-controls button:focus-visible { background: var(--coral); color: var(--navy); }
+.game-actions { justify-content: flex-start; }
+.game-actions button { cursor: pointer; font: inherit; }
+.game-help { font-size: .85rem; margin-top: 1rem; }
 .contact { min-height: 55vh; }
 .contact-email { color: var(--coral); display: inline-block; font-size: clamp(1.2rem, 3vw, 2.5rem); margin-top: 2rem; }
 footer { color: var(--muted); font-size: .8rem; padding: 2rem 1rem; text-align: center; }
@@ -96,6 +109,8 @@ footer { color: var(--muted); font-size: .8rem; padding: 2rem 1rem; text-align: 
   nav { gap: 1rem; }
   h1 { font-size: clamp(2.7rem, 14vw, 4.5rem); }
   .timeline-item { padding-bottom: 3.5rem; }
+  .game-actions { align-items: stretch; flex-direction: column; }
+  .game-actions .button { text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
