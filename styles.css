@@ -38,23 +38,25 @@ main { margin: 0 auto; max-width: 1200px; padding: 0 clamp(1rem, 5vw, 5rem); }
 .hero-copy { position: relative; z-index: 1; }
 .eyebrow { color: var(--muted); font-size: .75rem; letter-spacing: .16em; margin: 0 0 1.1rem; }
 .eyebrow span, h2 span { color: var(--coral); }
-.hero-name { font-size: clamp(1.3rem, 2.5vw, 2rem); margin: 0 0 1rem; }
+.hero-name { font-size: clamp(1.2rem, 2.2vw, 1.7rem); margin: 0 0 1rem; }
 h1, h2, h3 { line-height: 1.08; margin: 0; }
-h1 { font-size: clamp(3rem, 7vw, 6.8rem); letter-spacing: -.06em; }
+h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); letter-spacing: -.05em; }
 h1 em, h2 em { color: var(--coral); font-style: normal; }
 .lede { color: var(--muted); font-size: 1.05rem; max-width: 540px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
-.button { border: 1px solid var(--coral); display: inline-block; padding: .7rem 1.1rem; text-decoration: none; }
+.button { align-items: center; border: 1px solid var(--coral); display: inline-flex; gap: .55rem; padding: .7rem 1.1rem; text-decoration: none; }
 .button-primary { background: var(--coral); color: var(--navy); }
 .button-outline:hover, .button-outline:focus-visible { background: var(--coral); color: var(--navy); }
+.button-icon { fill: none; height: 1.05rem; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; width: 1.05rem; }
+.button-icon.icon-linkedin path { fill: currentColor; stroke: none; }
+.button-icon .icon-fill { fill: currentColor; stroke: none; }
 
-.portrait-wrap { aspect-ratio: 4 / 5; max-width: 430px; position: relative; width: 100%; }
+.portrait-wrap { aspect-ratio: 4 / 5; max-width: 340px; position: relative; width: 100%; }
 .portrait-wrap::after { background: radial-gradient(circle, rgba(255, 112, 95, .32), transparent 65%); content: ""; inset: 10%; position: absolute; z-index: 0; }
 .portrait { filter: grayscale(1); height: 100%; object-fit: cover; object-position: 50% 25%; position: relative; width: 100%; z-index: 1; }
 .orbit { border: 2px solid var(--coral); border-radius: 50%; height: 70%; left: 13%; opacity: .8; position: absolute; top: 14%; transform: rotate(-12deg); width: 74%; z-index: 0; }
 .orbit-two { border-color: rgba(255, 112, 95, .35); height: 82%; left: 4%; top: 8%; transform: rotate(20deg); width: 86%; }
 
-.skill-strip { background: var(--navy-light); color: var(--muted); display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin: 0 calc(clamp(1rem, 5vw, 5rem) * -1); padding: 1.25rem clamp(1rem, 5vw, 5rem); text-transform: uppercase; }
 .section { border-top: 1px solid var(--line); padding: clamp(5rem, 12vw, 10rem) 0; }
 .career { display: grid; gap: clamp(3rem, 9vw, 9rem); grid-template-columns: minmax(220px, .7fr) 1.3fr; }
 .career-intro { align-self: start; position: sticky; top: 7rem; }
@@ -95,13 +97,12 @@ footer { color: var(--muted); font-size: .8rem; padding: 2rem 1rem; text-align: 
 
 @media (max-width: 760px) {
   .hero { gap: 2.5rem; grid-template-columns: 1fr; }
-  .portrait-wrap { margin: 0 auto; max-width: 330px; order: -1; }
+  .portrait-wrap { margin: 0 auto; max-width: 270px; order: -1; }
   .hero-copy { text-align: center; }
   .hero-copy .lede { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .career { gap: 3rem; grid-template-columns: 1fr; }
   .career-intro { position: static; }
-  .skill-strip { gap: 1rem; justify-content: center; }
 }
 
 @media (max-width: 480px) {
