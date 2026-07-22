@@ -1,0 +1,57 @@
+:root {
+  color: #171717;
+  background: #f7f7f4;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  line-height: 1.6;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+a { color: inherit; }
+
+.site-header {
+  align-items: center;
+  background: rgba(247, 247, 244, .94);
+  border-bottom: 1px solid #deded8;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem clamp(1rem, 4vw, 4rem);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.brand { font-weight: 700; text-decoration: none; }
+.brand span { color: #777; font-size: .8rem; font-weight: 400; margin-left: .5rem; }
+nav { display: flex; flex-wrap: wrap; gap: 1rem; }
+nav a { font-size: .9rem; text-decoration: none; }
+nav a:hover, nav a:focus-visible { text-decoration: underline; }
+
+main { margin: 0 auto; max-width: 1100px; padding: 0 1rem; }
+.hero { min-height: 70vh; padding: clamp(5rem, 14vw, 10rem) 0; }
+.eyebrow { color: #777; font-size: .75rem; letter-spacing: .14em; margin: 0 0 1rem; }
+h1, h2, h3 { line-height: 1.1; margin: 0; }
+h1 { font-size: clamp(3rem, 10vw, 8rem); max-width: 850px; }
+h2 { font-size: clamp(2rem, 5vw, 4rem); }
+h3 { font-size: 1.35rem; }
+.lede { font-size: clamp(1.1rem, 2vw, 1.4rem); max-width: 600px; }
+.button { border: 1px solid #171717; display: inline-block; margin-top: 1rem; padding: .65rem 1rem; text-decoration: none; }
+.button:hover, .button:focus-visible { background: #171717; color: #f7f7f4; }
+
+.section { border-top: 1px solid #deded8; padding: clamp(4rem, 10vw, 8rem) 0; }
+.section-heading { align-items: end; display: flex; gap: 2rem; margin-bottom: 2rem; }
+.cv-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cv-card { background: #fff; border: 1px solid #e6e6e1; padding: clamp(1.25rem, 3vw, 2rem); }
+.date, .company { color: #777; font-size: .9rem; margin: 0 0 .5rem; }
+.cv-card p:last-child { margin-bottom: 0; }
+.games-placeholder { min-height: 35vh; }
+.contact { min-height: 45vh; }
+.contact a { font-size: clamp(1.5rem, 4vw, 3rem); }
+footer { color: #777; font-size: .8rem; padding: 2rem 1rem; text-align: center; }
+
+@media (max-width: 600px) {
+  .site-header { align-items: flex-start; flex-direction: column; gap: .75rem; }
+  .cv-grid { grid-template-columns: 1fr; }
+  .section-heading { align-items: flex-start; flex-direction: column; gap: .5rem; }
+}
