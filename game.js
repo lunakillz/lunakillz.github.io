@@ -16,6 +16,8 @@
   let timer = null;
   let paused = false;
   let gameOver = false;
+  let particles = [];
+  let particleFrame = null;
   highScoreElement.textContent = highScore;
 
   function reset() {
@@ -25,6 +27,9 @@
     score = 0;
     paused = false;
     gameOver = false;
+    particles = [];
+    if (particleFrame) cancelAnimationFrame(particleFrame);
+    particleFrame = null;
     scoreElement.textContent = score;
     statusElement.textContent = 'Start를 눌러 게임을 시작하세요.';
     placeFood();
@@ -46,6 +51,33 @@
       context.fillStyle = index === 0 ? '#f5f6f4' : '#8d9aa4';
       context.fillRect(part.x * cell + 2, part.y * cell + 2, cell - 4, cell - 4);
     });
+    particles.forEach((particle) => {
+      context.globalAlpha = Math.max(particle.life, 0);
+      context.fillStyle = '#ff705f';
+      context.fillRect(particle.x - particle.size / 2, particle.y - particle.size / 2, particle.size, particle.size);
+    });
+    context.globalAlpha = 1;
+  }
+
+  function animateParticles() {
+    particles = particles.filter((particle) => {
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+      particle.life -= .045;
+      particle.size *= .97;
+      return particle.life > 0;
+    });
+    draw();
+    particleFrame = particles.length ? requestAnimationFrame(animateParticles) : null;
+  }
+
+  function spawnParticles(x, y) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    particles = Array.from({ length: 10 }, (_, index) => {
+      const angle = (Math.PI * 2 * index) / 10;
+      return { x, y, vx: Math.cos(angle) * 1.8, vy: Math.sin(angle) * 1.8, life: 1, size: 4 };
+    });
+    if (!particleFrame) particleFrame = requestAnimationFrame(animateParticles);
   }
 
   function setDirection(next) {
@@ -69,6 +101,7 @@
     }
     snake.unshift(head);
     if (head.x === food.x && head.y === food.y) {
+      spawnParticles(food.x * cell + cell / 2, food.y * cell + cell / 2);
       score += 1;
       scoreElement.textContent = score;
       if (score > highScore) {
@@ -95,16 +128,27 @@
     statusElement.textContent = paused ? 'Paused' : 'Playing';
   }
 
+  function flashControl(action) {
+    const button = document.querySelector(`[data-action="${action}"]`);
+    if (!button) return;
+    button.classList.remove('is-pressed');
+    void button.offsetWidth;
+    button.classList.add('is-pressed');
+    window.setTimeout(() => button.classList.remove('is-pressed'), 140);
+  }
+
   document.querySelector('#start-game').addEventListener('click', start);
   document.querySelector('#pause-game').addEventListener('click', pause);
   document.querySelector('#restart-game').addEventListener('click', () => { clearInterval(timer); timer = null; reset(); });
   document.querySelectorAll('[data-action]').forEach((button) => button.addEventListener('click', () => {
     const moves = { up: { x: 0, y: -1 }, down: { x: 0, y: 1 }, left: { x: -1, y: 0 }, right: { x: 1, y: 0 } };
+    flashControl(button.dataset.action);
     setDirection(moves[button.dataset.action]);
   }));
   document.addEventListener('keydown', (event) => {
     const moves = { ArrowUp: { x: 0, y: -1 }, ArrowDown: { x: 0, y: 1 }, ArrowLeft: { x: -1, y: 0 }, ArrowRight: { x: 1, y: 0 }, KeyW: { x: 0, y: -1 }, KeyS: { x: 0, y: 1 }, KeyA: { x: -1, y: 0 }, KeyD: { x: 1, y: 0 } };
-    if (moves[event.code]) { event.preventDefault(); setDirection(moves[event.code]); }
+    const actions = { ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right', KeyW: 'up', KeyS: 'down', KeyA: 'left', KeyD: 'right' };
+    if (moves[event.code]) { event.preventDefault(); flashControl(actions[event.code]); setDirection(moves[event.code]); }
   });
   board.addEventListener('touchstart', (event) => {
     const touch = event.changedTouches[0];

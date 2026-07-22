@@ -114,6 +114,7 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .game-controls button:nth-child(4) { grid-column: 3; grid-row: 2; }
 .game-controls button:hover, .game-controls button:focus-visible { background: var(--coral); color: var(--navy); transform: translateY(-2px); }
 .game-controls button:active { transform: translateY(1px); }
+.game-controls button.is-pressed { background: var(--coral); box-shadow: 0 0 0 .2rem rgba(255,112,95,.2); color: var(--navy); transform: translateY(1px) scale(.96); }
 .game-actions button { cursor: pointer; font: inherit; }
 .contact { min-height: 55vh; }
 .contact-email { color: var(--coral); display: inline-block; font-size: clamp(1.2rem, 3vw, 2.5rem); margin-top: 2rem; }
