@@ -34,13 +34,15 @@ nav a { color: var(--muted); font-size: .85rem; text-decoration: none; }
 nav a:hover, nav a:focus-visible { color: var(--ink); }
 
 main { margin: 0 auto; max-width: 1200px; padding: 0 clamp(1rem, 5vw, 5rem); }
-.hero { align-items: center; display: grid; gap: 4rem; grid-template-columns: 1fr .85fr; min-height: 82vh; padding: clamp(4rem, 9vw, 8rem) 0; }
+.hero { align-items: center; display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: minmax(0, 1.35fr) minmax(180px, .65fr); min-height: 82vh; padding: clamp(4rem, 9vw, 8rem) 0; }
 .hero-copy { position: relative; z-index: 1; }
 .eyebrow { color: var(--muted); font-size: .75rem; letter-spacing: .16em; margin: 0 0 1.1rem; }
 .eyebrow span, h2 span { color: var(--coral); }
 .hero-name { font-size: clamp(1.2rem, 2.2vw, 1.7rem); margin: 0 0 1rem; }
 h1, h2, h3 { line-height: 1.08; margin: 0; }
 h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); letter-spacing: -.05em; }
+.hero .eyebrow, .hero .hero-name, .hero h1 { font-size: clamp(2.1rem, 4.5vw, 4.25rem); letter-spacing: -.045em; line-height: 1.08; }
+.hero .eyebrow { color: var(--ink); margin-bottom: 1rem; }
 h1 em, h2 em { color: var(--coral); font-style: normal; }
 .lede { color: var(--muted); font-size: 1.05rem; max-width: 540px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
@@ -48,10 +50,9 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .button-primary { background: var(--coral); color: var(--navy); }
 .button-outline:hover, .button-outline:focus-visible { background: var(--coral); color: var(--navy); }
 .button-icon { fill: none; height: 1.05rem; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; width: 1.05rem; }
-.button-icon.icon-linkedin path { fill: currentColor; stroke: none; }
-.button-icon .icon-fill { fill: currentColor; stroke: none; }
+.button-icon-image { object-fit: contain; }
 
-.portrait-wrap { aspect-ratio: 4 / 5; max-width: 340px; position: relative; width: 100%; }
+.portrait-wrap { aspect-ratio: 4 / 5; max-width: 260px; position: relative; width: 100%; }
 .portrait-wrap::after { background: radial-gradient(circle, rgba(255, 112, 95, .32), transparent 65%); content: ""; inset: 10%; position: absolute; z-index: 0; }
 .portrait { filter: grayscale(1); height: 100%; object-fit: cover; object-position: 50% 25%; position: relative; width: 100%; z-index: 1; }
 .orbit { border: 2px solid var(--coral); border-radius: 50%; height: 70%; left: 13%; opacity: .8; position: absolute; top: 14%; transform: rotate(-12deg); width: 74%; z-index: 0; }
@@ -74,17 +75,20 @@ h1 em, h2 em { color: var(--coral); font-style: normal; }
 .timeline-item p:last-child { color: var(--muted); max-width: 680px; }
 .education h3 { color: var(--ink); }
 .games { min-height: 70vh; }
-.game-shell { background: var(--navy-light); margin-top: 2.5rem; max-width: 680px; padding: clamp(1rem, 4vw, 2rem); }
+.game-shell { background: linear-gradient(145deg, #172631, var(--navy-light)); border: 1px solid var(--line); border-radius: 1.5rem; box-shadow: 0 1.5rem 4rem #0005; margin-top: 2.5rem; max-width: 680px; overflow: hidden; padding: clamp(1rem, 4vw, 2rem); }
 .game-heading, .game-stats, .game-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; }
 .game-heading p, .game-help, .game-status { color: var(--muted); margin: 0; }
 .game-stats { gap: 1.25rem; }
-.game-stats strong { color: var(--coral); font-size: 1.2rem; margin-left: .25rem; }
-#snake-board { background: #0a141d; border: 1px solid var(--line); display: block; height: min(100%, 520px); margin: 1.5rem auto; max-width: 100%; width: 100%; }
-.game-controls { display: grid; gap: .45rem; grid-template-columns: repeat(3, 3rem); justify-content: center; margin: 1.25rem auto; }
-.game-controls button { background: transparent; border: 1px solid var(--coral); color: var(--ink); cursor: pointer; font-size: 1.3rem; min-height: 3rem; touch-action: manipulation; }
+.game-stats strong { background: #0a141d; border: 1px solid var(--line); border-radius: .5rem; color: var(--coral); display: inline-block; font-size: 1.2rem; margin-left: .25rem; min-width: 2.2rem; padding: .25rem .45rem; text-align: center; }
+#snake-board { background: #0a141d; border: 1px solid var(--line); border-radius: 1rem; box-shadow: inset 0 0 2rem #0006; display: block; height: min(100%, 520px); margin: 1.5rem auto; max-width: 100%; width: 100%; }
+.game-status { background: #0a141d; border-left: 3px solid var(--coral); border-radius: .35rem; padding: .65rem .8rem; }
+.game-console-controls { align-items: center; display: grid; gap: 1.25rem; grid-template-columns: 1fr minmax(8rem, 10rem); margin: 1.25rem auto; max-width: 30rem; }
+.game-controls { background: #0a141d; border: 1px solid var(--line); border-radius: 1rem; box-shadow: 0 .75rem 1.5rem #0004; display: grid; gap: .45rem; grid-template-columns: repeat(3, 3.3rem); justify-content: center; margin: 0 auto; padding: .65rem; width: max-content; }
+.game-controls button { background: #172631; border: 1px solid var(--coral); border-radius: .55rem; color: var(--ink); cursor: pointer; font-size: 1.3rem; min-height: 3.3rem; touch-action: manipulation; transition: background .2s ease, transform .2s ease; }
 .game-controls button:first-child { grid-column: 2; }
-.game-controls button:hover, .game-controls button:focus-visible { background: var(--coral); color: var(--navy); }
-.game-actions { justify-content: flex-start; }
+.game-controls button:hover, .game-controls button:focus-visible { background: var(--coral); color: var(--navy); transform: translateY(-2px); }
+.game-controls button:active { transform: translateY(1px); }
+.game-actions { align-items: stretch; flex-direction: column; justify-content: center; }
 .game-actions button { cursor: pointer; font: inherit; }
 .game-help { font-size: .85rem; margin-top: 1rem; }
 .contact { min-height: 55vh; }
@@ -97,12 +101,14 @@ footer { color: var(--muted); font-size: .8rem; padding: 2rem 1rem; text-align: 
 
 @media (max-width: 760px) {
   .hero { gap: 2.5rem; grid-template-columns: 1fr; }
-  .portrait-wrap { margin: 0 auto; max-width: 270px; order: -1; }
+  .portrait-wrap { margin: 0 auto; max-width: 210px; }
   .hero-copy { text-align: center; }
   .hero-copy .lede { margin-left: auto; margin-right: auto; }
   .hero-actions { justify-content: center; }
   .career { gap: 3rem; grid-template-columns: 1fr; }
   .career-intro { position: static; }
+  .game-console-controls { grid-template-columns: 1fr; }
+  .game-actions { align-items: center; flex-direction: row; justify-content: center; }
 }
 
 @media (max-width: 480px) {
@@ -110,7 +116,7 @@ footer { color: var(--muted); font-size: .8rem; padding: 2rem 1rem; text-align: 
   nav { gap: 1rem; }
   h1 { font-size: clamp(2.7rem, 14vw, 4.5rem); }
   .timeline-item { padding-bottom: 3.5rem; }
-  .game-actions { align-items: stretch; flex-direction: column; }
+  .game-actions { align-items: stretch; flex-direction: column; width: min(100%, 14rem); }
   .game-actions .button { text-align: center; }
 }
 
